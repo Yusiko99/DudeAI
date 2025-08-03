@@ -59,8 +59,8 @@ A cutting-edge web application that provides personalized AI companionship with 
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd dude-ai-best-friend
+git clone https://github.com/Yusiko99/DudeAI.git
+cd DudeAI-master
 ```
 
 2. Install dependencies:
