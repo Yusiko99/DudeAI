@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-neutral-900 via-primary-900 to-secondary-900 text-neutral-50 font-sans;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Liquid Glass Effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-glass;
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+  
+  .glass-effect-dark {
+    @apply backdrop-blur-md bg-black/20 border border-white/10 shadow-glass;
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+  
+  /* Liquid Button */
+  .liquid-button {
+    @apply relative overflow-hidden rounded-xl px-6 py-3 font-medium transition-all duration-300;
+    background: linear-gradient(135deg, rgba(91, 107, 255, 0.1), rgba(34, 197, 94, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+  }
+  
+  .liquid-button:hover {
+    @apply transform scale-105 shadow-liquid;
+    background: linear-gradient(135deg, rgba(91, 107, 255, 0.2), rgba(34, 197, 94, 0.2));
+  }
+  
+  .liquid-button:active {
+    @apply transform scale-95;
+  }
+  
+  /* Liquid Input */
+  .liquid-input {
+    @apply w-full px-4 py-3 rounded-xl border transition-all duration-300;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+  }
+  
+  .liquid-input:focus {
+    @apply outline-none ring-2 ring-primary-500/50;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(91, 107, 255, 0.5);
+  }
+  
+  /* Chat Bubble */
+  .chat-bubble-user {
+    @apply max-w-xs lg:max-w-md px-4 py-3 rounded-2xl rounded-br-sm;
+    background: linear-gradient(135deg, rgba(91, 107, 255, 0.2), rgba(34, 197, 94, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+  }
+  
+  .chat-bubble-ai {
+    @apply max-w-xs lg:max-w-md px-4 py-3 rounded-2xl rounded-bl-sm;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+  }
+  
+  /* Floating Animation */
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Liquid Background */
+  .liquid-bg {
+    background: linear-gradient(135deg, 
+      rgba(91, 107, 255, 0.1) 0%, 
+      rgba(34, 197, 94, 0.05) 25%, 
+      rgba(14, 165, 233, 0.1) 50%, 
+      rgba(91, 107, 255, 0.05) 75%, 
+      rgba(34, 197, 94, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: liquid 8s ease-in-out infinite;
+  }
+  
+  /* Ripple Effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Custom Slider */
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5b6bff, #22c55e);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5b6bff, #22c55e);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #5b6bff, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-liquid {
+    background: linear-gradient(135deg, 
+      rgba(91, 107, 255, 0.1), 
+      rgba(34, 197, 94, 0.1), 
+      rgba(14, 165, 233, 0.1));
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(91, 107, 255, 0.5), rgba(34, 197, 94, 0.5));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(91, 107, 255, 0.7), rgba(34, 197, 94, 0.7));
+  }
+} 
